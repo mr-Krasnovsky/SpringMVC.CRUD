@@ -1,5 +1,6 @@
 package ru.krasnov.springcourse.models;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -15,18 +16,30 @@ public class Person {
     private int age;
 
     @NotEmpty(message = "Email should not be empty")
-    // @Email(message = "Email should be valid")
+    @Email(message = "Email should be valid")
     private String email;
+
+    // Country, City, Post index (6 numbers)
+    private String adress;
 
     public Person() {
 
     }
 
-    public Person(int id, String name, int age, String email) {
+    public Person(int id, String name, int age, String email, String adress) {
 	this.id = id;
 	this.name = name;
 	this.age = age;
 	this.email = email;
+	this.adress = adress;
+    }
+
+    public String getAdress() {
+	return adress;
+    }
+
+    public void setAdress(String adress) {
+	this.adress = adress;
     }
 
     public int getId() {
